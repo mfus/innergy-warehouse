@@ -1,6 +1,6 @@
 {
-  "short_name": "Warehaouse App",
-  "name": "An app to parse warehaouses' initial states",
+  "short_name": "Warehouse App",
+  "name": "Load initial states",
   "icons": [{
     "src": "favicon.ico",
     "sizes": "64x64 32x32 24x24 16x16",
