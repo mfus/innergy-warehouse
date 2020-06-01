@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { mount } from 'enzyme'
+import InitialInventoryLoader from './components/InitialInventoryLoader';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('app renders inventory loader', () => {
+  const wrapper = mount(<App />);
+  expect(wrapper.find(InitialInventoryLoader)).toHaveLength(1);
 });
