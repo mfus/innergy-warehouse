@@ -14,7 +14,7 @@ const input = [
     { data: ['Hdw Accuride CB0115-CASSRC - Locking Handle Kit - Black', 'CB0115-CASSRC', 'WH-C,13|WH-B,5'] },
     { data: ['Veneer - Charter Industries - 3M Adhesive Backed - Cherry 10mm - Paper Back', '3M-Cherry-10mm', 'WH-A,10|WH-B,1'] },
     { data: ['Veneer - Cherry Rotary 1 FSC', 'COM-123823', 'WH-C,10'] },
-    { data: ['MDF, CARB2, 1 1/8"', 'COM-101734', 'WH-C,8'] }
+    { data: ['MDF, CARB2, 1 1/8"', 'COM-101734', 'WH-C,8'] },
 ];
 
 jest.mock('../InventoryStateParser', () => {
@@ -74,7 +74,7 @@ describe('InitialInventoryLoader', () => {
             wrapper.find<CSVReader>(CSVReader).instance().props.onDrop(input);
         });
         expect(InventoryStateParser).toHaveBeenCalledTimes(1);
-        expect(InventoryStateParser).toHaveBeenCalledWith(input);
+        expect(InventoryStateParser).toHaveBeenCalledWith(input.map(x => x.data));
     });
 
     test('buiding tables', async () => {
