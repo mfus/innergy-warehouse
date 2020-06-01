@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import { Warehouse } from '../warehouse';
 
-const InventoryStateParser: (rows: { data: string[] }[]) => Warehouse[] = (rows) => {
-    if (!rows) {
+const InventoryStateParser: (data: string[][]) => Warehouse[] = (data) => {
+    if (!data) {
         return [];
     }
 
-    const parsedRows = rows.map(row => {
-        const [, materialId, placement] = [...row.data];
+    const parsedRows = data.map(row => {
+        const [, materialId, placement] = [...row];
         if (!materialId || !placement) {
             return [];
         }

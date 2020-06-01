@@ -12,9 +12,9 @@ function InitialInventoryLoader() {
         setError(`Failed to parse: ${error}`);
     };
 
-    const handleData = (raw: any) => {
+    const handleData = (raw: { data: string[] }[]) => {
         setError('');
-        const parsed = InventoryStateParser(raw);
+        const parsed = InventoryStateParser(raw.map(x => x.data));
         setData(parsed);
     };
 
